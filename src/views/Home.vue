@@ -31,10 +31,11 @@ export default {
 
 <template>
   <div class="home">
-    <h1>{{ petName }}</h1>
+    <h1>Giga-Vue</h1>
     <section :class="$style.wrapper">
       <GigaVue />
       <DinoPet :class="$style.dinopet" v-if="petName" />
+      <h2>{{ petName }}</h2>
     </section>
     <form v-if="showCreatePetForm" @submit.prevent>
       <label for="pet-name">Pet Name</label>
