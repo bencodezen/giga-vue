@@ -1,10 +1,12 @@
 <script>
 import { reactive, toRefs } from "vue";
+import DinoPet from "@/components/DinoPet.vue";
 import GigaVue from "@/components/GigaVue.vue";
 
 export default {
   name: "Home",
   components: {
+    DinoPet,
     GigaVue
   },
   setup() {
@@ -30,7 +32,10 @@ export default {
 <template>
   <div class="home">
     <h1>{{ petName }}</h1>
-    <GigaVue />
+    <section :class="$style.wrapper">
+      <GigaVue />
+      <DinoPet :class="$style.dinopet" v-if="petName" />
+    </section>
     <form v-if="showCreatePetForm" @submit.prevent>
       <label for="pet-name">Pet Name</label>
       <input type="text" id="pet-name" v-model="userInput" />
@@ -38,3 +43,16 @@ export default {
     </form>
   </div>
 </template>
+
+<style module>
+.wrapper {
+  position: relative;
+}
+
+.dinopet {
+  max-width: 120px;
+  position: absolute;
+  left: 250px;
+  top: 210px;
+}
+</style>
