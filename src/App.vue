@@ -1,5 +1,16 @@
+<script>
+import AppFooter from "./components/AppFooter";
+
+export default {
+  components: {
+    AppFooter
+  }
+};
+</script>
+
 <template>
   <router-view />
+  <AppFooter />
 </template>
 
 <style lang="scss">
