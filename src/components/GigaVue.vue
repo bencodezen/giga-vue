@@ -56,6 +56,7 @@
 <style lang="scss" module>
 .gigavue {
   max-width: 400px;
+  width: 100%;
 }
 
 .white {

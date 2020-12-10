@@ -34,9 +34,10 @@ export default {
     <h1>Giga-Vue</h1>
     <section :class="$style.wrapper">
       <GigaVue />
-      <DinoPet :class="$style.dinopet" v-if="petName" />
-      <h2>{{ petName }}</h2>
+      <DinoPet v-if="petName" :class="$style.dinopet" />
     </section>
+    <h2>{{ petName }}</h2>
+
     <form v-if="showCreatePetForm" @submit.prevent>
       <label for="pet-name">Pet Name</label>
       <input type="text" id="pet-name" v-model="userInput" />
@@ -48,12 +49,16 @@ export default {
 <style module>
 .wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .dinopet {
-  max-width: 120px;
   position: absolute;
-  left: 250px;
-  top: 210px;
+  max-width: 120px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-45%);
+  z-index: 1;
 }
 </style>
