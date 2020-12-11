@@ -10,6 +10,7 @@ export default {
   setup() {
     const state = reactive({
       petName: "",
+      petMood: "Happy",
       userInput: "",
       showCreatePetForm: true
     });
@@ -19,9 +20,14 @@ export default {
       state.showCreatePetForm = false;
     };
 
+    const updatePetMood = mood => {
+      state.petMood = mood;
+    };
+
     return {
       ...toRefs(state),
-      createPet
+      createPet,
+      updatePetMood
     };
   }
 };
@@ -31,15 +37,19 @@ export default {
   <div class="home">
     <h1>Giga-Vue</h1>
     <section>
-      <GigaVue :petName="petName" />
+      <GigaVue :petName="petName" :petMood="petMood" />
     </section>
     <h2>{{ petName }}</h2>
-
     <form v-if="showCreatePetForm" @submit.prevent>
       <label for="pet-name">Pet Name</label>
       <input type="text" id="pet-name" v-model="userInput" />
       <button @click="createPet">New Pet</button>
     </form>
+    <div v-else>
+      <button @click="updatePetMood('Happy')">Happy</button>
+      <button @click="updatePetMood('Angry')">Angry</button>
+      <button @click="updatePetMood('Sleep')">Sleep</button>
+    </div>
   </div>
 </template>
 

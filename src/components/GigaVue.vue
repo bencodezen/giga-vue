@@ -6,6 +6,10 @@ export default {
     petName: {
       type: String,
       required: true
+    },
+    petMood: {
+      type: String,
+      required: true
     }
   },
   components: {
@@ -68,7 +72,7 @@ export default {
         </g>
       </g>
     </svg>
-    <DinoPet v-if="petName" :class="$style.dinopet" />
+    <DinoPet v-if="petName" :class="$style.dinopet" :mood="petMood" />
   </div>
 </template>
 
