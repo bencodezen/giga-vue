@@ -31,7 +31,7 @@ export default {
   <div class="home">
     <h1>Giga-Vue</h1>
     <section>
-      <GigaVue />
+      <GigaVue :petName="petName" />
     </section>
     <h2>{{ petName }}</h2>
 

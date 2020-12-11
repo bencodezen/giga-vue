@@ -2,6 +2,12 @@
 import DinoPet from "./DinoPet";
 
 export default {
+  props: {
+    petName: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     DinoPet
   }
@@ -62,7 +68,7 @@ export default {
         </g>
       </g>
     </svg>
-    <DinoPet :class="$style.dinopet" />
+    <DinoPet v-if="petName" :class="$style.dinopet" />
   </div>
 </template>
 
