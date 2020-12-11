@@ -1,12 +1,10 @@
 <script>
 import { reactive, toRefs } from "vue";
-import DinoPet from "@/components/DinoPet.vue";
 import GigaVue from "@/components/GigaVue.vue";
 
 export default {
   name: "Home",
   components: {
-    DinoPet,
     GigaVue
   },
   setup() {
@@ -34,7 +32,6 @@ export default {
     <h1>Giga-Vue</h1>
     <section :class="$style.wrapper">
       <GigaVue />
-      <DinoPet v-if="petName" :class="$style.dinopet" />
     </section>
     <h2>{{ petName }}</h2>
 
@@ -46,19 +43,4 @@ export default {
   </div>
 </template>
 
-<style module>
-.wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.dinopet {
-  position: absolute;
-  max-width: 120px;
-  width: 100%;
-  top: 50%;
-  transform: translateY(-45%);
-  z-index: 1;
-}
-</style>
+<style module></style>
