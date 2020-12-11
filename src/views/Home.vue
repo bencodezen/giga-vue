@@ -30,7 +30,7 @@ export default {
 <template>
   <div class="home">
     <h1>Giga-Vue</h1>
-    <section :class="$style.wrapper">
+    <section>
       <GigaVue />
     </section>
     <h2>{{ petName }}</h2>
