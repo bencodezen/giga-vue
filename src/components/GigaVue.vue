@@ -12,8 +12,16 @@ export default {
       required: true
     }
   },
+  data: () => ({
+    parentPetMood: "Happy"
+  }),
   components: {
     DinoPet
+  },
+  methods: {
+    changePetMood({ mood }) {
+      this.parentPetMood = mood;
+    }
   }
 };
 </script>
@@ -72,11 +80,27 @@ export default {
         </g>
       </g>
     </svg>
-    <DinoPet v-if="petName" :class="$style.dinopet" :mood="petMood" />
+    <DinoPet
+      v-if="petName"
+      :class="$style.dinopet"
+      :mood="parentPetMood"
+      @update-pet-mood="changePetMood"
+    />
+    <p :class="$style.mood">{{ parentPetMood }}</p>
   </div>
 </template>
 
 <style lang="scss" module>
+.mood {
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: white;
+  font-size: 1.5rem;
+}
+
 .gigavue {
   max-width: 400px;
   width: 100%;

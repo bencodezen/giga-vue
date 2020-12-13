@@ -13,16 +13,39 @@ export default {
       default: "Angry"
     }
   },
+  data: () => ({
+    innerMood: "Sleep"
+  }),
   computed: {
     dinoMood() {
       return `Dino${this.mood}`;
+    }
+  },
+  methods: {
+    updatePetMood() {
+      this.$emit("update-pet-mood", {
+        mood: this.innerMood
+      });
     }
   }
 };
 </script>
 
 <template>
-  <component :is="dinoMood" />
+  <div :class="$style.wrapper">
+    <component :is="dinoMood" />
+    <button :class="$style.button" @click="updatePetMood">Update Mood</button>
+  </div>
 </template>
 
-<style></style>
+<style module>
+.wrapper {
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+}
+</style>
